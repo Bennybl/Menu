@@ -6,10 +6,10 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
-        private readonly List<string> m_MainMenueItem;
-        private readonly string m_MenuTitle;
+        private readonly List<string> r_MainMenueItem;
+        private readonly string r_MenuTitle;
         private const int k_GoBack = 0;
-        private readonly string m_GoBackTitle;
+        private readonly string r_GoBackTitle;
         private readonly MainMenu r_PreviusLevel; 
 
         public delegate void MenuActionEventHandler(object source, EventArgs menuEventArgs);
@@ -18,27 +18,29 @@ namespace Ex04.Menus.Delegates
 
         public MainMenu(List<string> i_MainMenueItem, string i_MenuTitle, MainMenu i_PreviusLevel)
         {
-            m_MainMenueItem = i_MainMenueItem;
-            m_MenuTitle = i_MenuTitle;
+            r_MainMenueItem = i_MainMenueItem;
+            r_MenuTitle = i_MenuTitle;
             r_PreviusLevel = i_PreviusLevel;
             if(r_PreviusLevel == null)
             {
-                m_GoBackTitle = string.Format("{0} - Exit", k_GoBack);
+                r_GoBackTitle = string.Format("{0} - Exit", k_GoBack);
             }
             else
             {
-                m_GoBackTitle = m_GoBackTitle = string.Format("{0} - Go back", k_GoBack);
+                r_GoBackTitle = r_GoBackTitle = string.Format("{0} - Go back", k_GoBack);
             }
         }
 
         public void ShowMenu()
         {
             Console.Clear();
-            Console.WriteLine(m_MenuTitle);
+            Console.WriteLine(r_MenuTitle);
             Console.WriteLine();
-            Console.WriteLine(m_GoBackTitle);
-            foreach (string line in m_MainMenueItem)
+            Console.WriteLine(r_GoBackTitle);
+            int index = 1;
+            foreach (string item in r_MainMenueItem)
             {
+                string line = string.Format("{0}")
                 Console.WriteLine(line);
             }
 

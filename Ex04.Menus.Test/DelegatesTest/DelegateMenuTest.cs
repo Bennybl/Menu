@@ -12,8 +12,8 @@ namespace Ex04.Menus.Test
             string menuHead = "Main Delegate";
 
             List<string> items = new List<string>();
-            items.Add("1 - Time:");
-            items.Add("2 - version:");
+            items.Add("1 - Version:");
+            items.Add("2 - Time:");
             VersionData menege = new VersionData();
             MainMenu menu = new MainMenu(items, menuHead, null);
             menu.MenuAction += menege.OnMenuAction;
