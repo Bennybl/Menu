@@ -6,5 +6,8 @@ namespace Ex04.Menus.Test
 {
     class Data
     {
+        public void OnMenuAction(object souce, EventArgs e)
+        {
+        }
     }
 }
