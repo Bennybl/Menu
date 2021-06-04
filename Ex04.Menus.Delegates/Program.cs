@@ -15,7 +15,7 @@ namespace Ex04.Menus.Delegates
             items.Add("1. Time:");
             items.Add("2. Show SubMenu:");
             MenegeMenu menege = new MenegeMenu();
-            MainMenu menu = new MainMenu(items, menuHead , "Back");
+            MainMenu menu = new MainMenu(items, menuHead , null);
             menu.MenuAction += menege.OnMenuAction;
             menu.ShowMenu();
 
@@ -27,6 +27,7 @@ namespace Ex04.Menus.Delegates
             public void OnMenuAction(object souce, EventArgs e)
             {
                 UserChoise choise = (UserChoise)e;
+                MainMenu con = (MainMenu)souce;
                 switch (choise.Choise)
                 {
                     case 1:
@@ -36,7 +37,7 @@ namespace Ex04.Menus.Delegates
                         items.Add("1. Time in Us:");
                         items.Add("2. Time in Isreal:");
 
-                        MainMenu menu = new MainMenu(items, menuHead, "Back");
+                        MainMenu menu = new MainMenu(items, menuHead, con);
                         Time time = new Time();
                         menu.MenuAction += time.OnMenuAction;
                         menu.ShowMenu();
@@ -49,7 +50,7 @@ namespace Ex04.Menus.Delegates
                         items1.Add("1. Sub in Us:");
                         items1.Add("2. Sub in Isreal:");
 
-                        MainMenu menu1 = new MainMenu(items1, menuHead1 , "Back");
+                        MainMenu menu1 = new MainMenu(items1, menuHead1 , con);
                         Version version = new Version();
                         menu1.MenuAction += version.OnMenuAction;
                         menu1.ShowMenu();
