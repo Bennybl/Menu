@@ -59,7 +59,6 @@ namespace Ex04.Menus.Delegates
             {
                 OnMenuAction(userChoiseEvent);
             }
-            OnMenuAction(userChoiseEvent);
         }
 
         public void print(string i_input)
