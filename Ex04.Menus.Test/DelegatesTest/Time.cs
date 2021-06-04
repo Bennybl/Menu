@@ -7,11 +7,11 @@ namespace Ex04.Menus.Test
 {
     public class Time
     {
-        public void OnMenuAction(object souce, EventArgs e)
+        public void OnMenuAction(object i_Source, EventArgs i_UserChoiceEventArgs)
         {
-            UserChoise choise = (UserChoise)e;
-            MainMenu con = (MainMenu)souce;
-            switch (choise.Choise)
+            UserChoice choice = (UserChoice)i_UserChoiceEventArgs;
+            MainMenu currentMenu  = (MainMenu)i_Source;
+            switch (choice.Choice)
             {
                 case 1:
                     DateTime currentTime = DateTime.Now;
@@ -24,7 +24,7 @@ namespace Ex04.Menus.Test
                     break;
 
             }
-            con.GoBack();
+            currentMenu.GoBack();
         }
     }
 

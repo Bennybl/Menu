@@ -4,19 +4,19 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    public class UserChoise : EventArgs
+    public class UserChoice : EventArgs
     {
-        private int m_Choise;
+        private int m_Choice;
 
-        public UserChoise (int i_userChoise)
+        public UserChoice (int i_UserChoice)
         {
-            m_Choise = i_userChoise;
+            m_Choice = i_UserChoice;
         }
 
-        public int Choise 
+        public int Choice 
         {
-            get { return m_Choise ; }
-            set { m_Choise = value ; } 
+            get { return m_Choice ; }
+            set { m_Choice = value ; } 
         }
     }
 }

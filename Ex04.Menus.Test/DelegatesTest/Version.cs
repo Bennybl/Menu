@@ -10,17 +10,17 @@ namespace Ex04.Menus.Test
     {
         public void OnMenuAction(object souce, EventArgs e)
         {
-            UserChoise choise = (UserChoise)e;
+            UserChoice Choice = (UserChoice)e;
             MainMenu con = (MainMenu)souce;
-            switch (choise.Choise)
+            switch (Choice.Choice)
             {
                 case 1:
                     string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                    con.print(currentVersion);
+                    con.Print(currentVersion);
                     break;
 
                 case 2:
-                    con.print(CountSpaces());
+                    con.Print(CountSpaces());
                     break;
             }
             con.GoBack();

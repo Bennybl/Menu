@@ -9,9 +9,9 @@ namespace Ex04.Menus.Test
     {
         public void OnMenuAction(object i_PreviusLevel, EventArgs e)
         {
-            UserChoise choise = (UserChoise)e;
+            UserChoice Choice = (UserChoice)e;
             MainMenu con = (MainMenu)i_PreviusLevel;
-            switch (choise.Choise)
+            switch (Choice.Choice)
             {
                 case 1:
                     string firstSubMenuTitle = "Please select option:";
@@ -30,10 +30,10 @@ namespace Ex04.Menus.Test
                     List<string> secondSubMenuItems = new List<string>();
                     secondSubMenuItems.Add("Show Time");
                     secondSubMenuItems.Add("Show Data");
-                    MainMenu mesecondSubMenu = new MainMenu(secondSubMenuItems, secondSubMenuTitle, con);
+                    MainMenu secondSubMenu = new MainMenu(secondSubMenuItems, secondSubMenuTitle, con);
                     Time time = new Time();
-                    mesecondSubMenu.MenuAction += time.OnMenuAction;
-                    mesecondSubMenu.ShowMenu();
+                    secondSubMenu.MenuAction += time.OnMenuAction;
+                    secondSubMenu.ShowMenu();
                     break;
             }
         }
