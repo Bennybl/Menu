@@ -75,7 +75,7 @@ namespace Ex04.Menus.Delegates
             Console.WriteLine();
             while (true)
             {
-                Console.WriteLine(r_GoBackTitle);
+                Console.WriteLine("Please press 0 to go back...");
                 try
                 {
                     userChoise = int.Parse(Console.ReadLine());
@@ -89,7 +89,7 @@ namespace Ex04.Menus.Delegates
                     ShowMenu();
                     break;
                 }
-                Console.WriteLine("Invalid input!!");
+                Console.WriteLine("Invalid input!");
             }
         }
 
