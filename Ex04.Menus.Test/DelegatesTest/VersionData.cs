@@ -14,26 +14,26 @@ namespace Ex04.Menus.Test
             switch (choise.Choise)
             {
                 case 1:
-                    string menuHead = "Please select option:";
-                    List<string> items = new List<string>();
-                    items.Add("1 - Show Version:");
-                    items.Add("2 - Count Spaces:");
-                    MainMenu menu = new MainMenu(items, menuHead, con);
-                    Time time = new Time();
-                    menu.MenuAction += time.OnMenuAction;
-                    menu.ShowMenu();
+                    string firstSubMenuTitle = "Please select option:";
+                    List<string> firstSubMenuItem = new List<string>();
+                    firstSubMenuItem.Add("Show Version:");
+                    firstSubMenuItem.Add("Count Spaces:");
+                    MainMenu firstSubMenu = new MainMenu(firstSubMenuItem, firstSubMenuTitle, con);
+                    Version version = new Version();
+                    firstSubMenu.MenuAction += version.OnMenuAction;
+                    firstSubMenu.ShowMenu();
+
                     break;
 
                 case 2:
-                    string menuHead1 = "Please select option:";
-
-                    List<string> items1 = new List<string>();
-                    items1.Add("1 - Show Time");
-                    items1.Add("2 - Show Data");
-                    MainMenu menu1 = new MainMenu(items1, menuHead1, con);
-                    Version version = new Version();
-                    menu1.MenuAction += version.OnMenuAction;
-                    menu1.ShowMenu();
+                    string secondSubMenuTitle = "Please select option:";
+                    List<string> secondSubMenuItems = new List<string>();
+                    secondSubMenuItems.Add("Show Time");
+                    secondSubMenuItems.Add("Show Data");
+                    MainMenu mesecondSubMenu = new MainMenu(secondSubMenuItems, secondSubMenuTitle, con);
+                    Time time = new Time();
+                    mesecondSubMenu.MenuAction += time.OnMenuAction;
+                    mesecondSubMenu.ShowMenu();
                     break;
             }
         }

@@ -40,8 +40,9 @@ namespace Ex04.Menus.Delegates
             int index = 1;
             foreach (string item in r_MainMenueItem)
             {
-                string line = string.Format("{0}");
+                string line = string.Format("{0} - {1}", index, item);
                 Console.WriteLine(line);
+                index++;
             }
 
             int userChoise = int.Parse(Console.ReadLine());
@@ -68,6 +69,30 @@ namespace Ex04.Menus.Delegates
             Console.WriteLine(i_input);
         }
 
+        public void GoBack()
+        {
+            int userChoise;
+            Console.WriteLine();
+            while (true)
+            {
+                Console.WriteLine(r_GoBackTitle);
+                try
+                {
+                    userChoise = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    userChoise = -1;
+                }
+                if (userChoise == 0)
+                {
+                    ShowMenu();
+                    break;
+                }
+                Console.WriteLine("Invalid input!!");
+            }
+        }
+
         protected virtual void OnMenuAction(EventArgs i_userChoiseEvent)
         {
             if(MenuAction != null)
@@ -76,4 +101,5 @@ namespace Ex04.Menus.Delegates
             }
         }
     }
+
 }

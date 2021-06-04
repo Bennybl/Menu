@@ -12,6 +12,7 @@ namespace Ex04.Menus.Delegates
         {
             m_Choise = i_userChoise;
         }
+
         public int Choise 
         {
             get { return m_Choise ; }

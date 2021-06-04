@@ -12,11 +12,11 @@ namespace Ex04.Menus.Test
             string menuHead = "Main Delegate";
 
             List<string> items = new List<string>();
-            items.Add("1 - Version:");
-            items.Add("2 - Time:");
-            VersionData menege = new VersionData();
+            items.Add("Version and Spaces:");
+            items.Add("Show Data/Time:");
+            VersionData secondLevel = new VersionData();
             MainMenu menu = new MainMenu(items, menuHead, null);
-            menu.MenuAction += menege.OnMenuAction;
+            menu.MenuAction += secondLevel.OnMenuAction;
             menu.ShowMenu();
         }
     }

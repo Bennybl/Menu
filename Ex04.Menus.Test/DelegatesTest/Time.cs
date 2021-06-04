@@ -14,17 +14,17 @@ namespace Ex04.Menus.Test
             switch (choise.Choise)
             {
                 case 1:
-
-                    con.print("time in us is: 4:30");
+                    DateTime currentTime = DateTime.Now;
+                    Console.WriteLine(currentTime.ToString("h:mm:ss tt"));
                     break;
 
                 case 2:
-                    con.print("time in IL is: 12:30");
+                    DateTime currentDate = DateTime.Today;
+                    Console.WriteLine(currentDate.ToString());
                     break;
 
             }
-            Console.WriteLine("Press enter to exit...");
-            Console.ReadLine();
+            con.GoBack();
         }
     }
 

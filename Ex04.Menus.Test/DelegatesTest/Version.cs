@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Text;
 using Ex04.Menus.Delegates;
@@ -14,16 +15,23 @@ namespace Ex04.Menus.Test
             switch (choise.Choise)
             {
                 case 1:
-
-                    con.print("Version is: 5.54.30");
+                    string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                    con.print(currentVersion);
                     break;
 
                 case 2:
-                    con.print("No new version");
+                    con.print(CountSpaces());
                     break;
             }
-            Console.WriteLine("Press enter to exit...");
-            Console.ReadLine();
+            con.GoBack();
+        }
+
+        private string CountSpaces()
+        {
+            Console.WriteLine("Please type as you will");
+            string userInput = Console.ReadLine();
+            int numOfSpaces = userInput.Split(' ').Length - 1;
+            return string.Format("Number of spaces: {0}", numOfSpaces);
         }
     }
 }
