@@ -40,7 +40,7 @@ namespace Ex04.Menus.Delegates
             int index = 1;
             foreach (string item in r_MainMenueItem)
             {
-                string line = string.Format("{0}")
+                string line = string.Format("{0}");
                 Console.WriteLine(line);
             }
 

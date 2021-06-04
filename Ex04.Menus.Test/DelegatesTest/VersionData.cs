@@ -7,10 +7,10 @@ namespace Ex04.Menus.Test
 {
     public class VersionData
     {
-        public void OnMenuAction(object souce, EventArgs e)
+        public void OnMenuAction(object i_PreviusLevel, EventArgs e)
         {
             UserChoise choise = (UserChoise)e;
-            MainMenu con = (MainMenu)souce;
+            MainMenu con = (MainMenu)i_PreviusLevel;
             switch (choise.Choise)
             {
                 case 1:
