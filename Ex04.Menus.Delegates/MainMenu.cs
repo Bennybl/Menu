@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    class MainMenu
+    public class MainMenu
     {
         private readonly List<string> m_MainMenueItem;
         private readonly string m_MenuTitle;

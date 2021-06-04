@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ex04.Menus.Delegates
 {
-    class UserChoise : EventArgs
+    public class UserChoise : EventArgs
     {
         private int m_Choise;
 
