@@ -12,8 +12,8 @@ namespace Ex04.Menus.Delegates
             string menuHead = "Menu!!";
 
             List<string> items = new List<string>();
-            items.Add("1. Time:");
-            items.Add("2. Show SubMenu:");
+            items.Add("1 - Time:");
+            items.Add("2 - version:");
             MenegeMenu menege = new MenegeMenu();
             MainMenu menu = new MainMenu(items, menuHead , null);
             menu.MenuAction += menege.OnMenuAction;
@@ -34,8 +34,8 @@ namespace Ex04.Menus.Delegates
                         string menuHead = "time!!";
 
                         List<string> items = new List<string>();
-                        items.Add("1. Time in Us:");
-                        items.Add("2. Time in Isreal:");
+                        items.Add("1 - Time in Us:");
+                        items.Add("2 - Time in Isreal:");
 
                         MainMenu menu = new MainMenu(items, menuHead, con);
                         Time time = new Time();
@@ -47,8 +47,8 @@ namespace Ex04.Menus.Delegates
                         string menuHead1 = "SubMenu!!";
 
                         List<string> items1 = new List<string>();
-                        items1.Add("1. Sub in Us:");
-                        items1.Add("2. Sub in Isreal:");
+                        items1.Add("1 - Current version:");
+                        items1.Add("2 - Check for new version:");
 
                         MainMenu menu1 = new MainMenu(items1, menuHead1 , con);
                         Version version = new Version();
@@ -58,6 +58,7 @@ namespace Ex04.Menus.Delegates
           
 
                 }
+
             }
         }
 
@@ -79,6 +80,8 @@ namespace Ex04.Menus.Delegates
                         break;
 
                 }
+                Console.WriteLine("Press enter to exit...");
+                Console.ReadLine();
             }
         }
 
@@ -101,6 +104,8 @@ namespace Ex04.Menus.Delegates
                         break;
 
                 }
+                Console.WriteLine("Press enter to exit...");
+                Console.ReadLine();
             }
         }
     }
