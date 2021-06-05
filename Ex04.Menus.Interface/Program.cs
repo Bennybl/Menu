@@ -6,7 +6,9 @@ namespace Ex04.Menus.Interface
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
         }
+
     }
+
 }
