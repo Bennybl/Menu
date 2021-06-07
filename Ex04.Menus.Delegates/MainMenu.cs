@@ -6,19 +6,19 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
-        private readonly List<string> r_MainMenuItem;
+        private readonly List<string> r_MainMenueItem;
         private readonly string r_MenuTitle;
         private const int k_GoBack = 0;
         private readonly string r_GoBackTitle;
         private readonly MainMenu r_PreviusLevel; 
 
-        public delegate void MenuActionEventHandler(object i_Source, EventArgs i_MenuEventArgs);
+        public delegate void MenuActionEventHandler(object source, EventArgs menuEventArgs);
         public event MenuActionEventHandler MenuAction;
-        public EventArgs m_UserChoiceEvent;
+        public EventArgs userChoiseEvent;
 
-        public MainMenu(List<string> i_MainMenuItem, string i_MenuTitle, MainMenu i_PreviusLevel)
+        public MainMenu(List<string> i_MainMenueItem, string i_MenuTitle, MainMenu i_PreviusLevel)
         {
-            r_MainMenuItem = i_MainMenuItem;
+            r_MainMenueItem = i_MainMenueItem;
             r_MenuTitle = i_MenuTitle;
             r_PreviusLevel = i_PreviusLevel;
             if(r_PreviusLevel == null)
@@ -38,11 +38,10 @@ namespace Ex04.Menus.Delegates
             Console.WriteLine();
             Console.WriteLine(r_GoBackTitle);
             int index = 1;
-            foreach (string item in r_MainMenuItem)
+            foreach (string item in r_MainMenueItem)
             {
-                string line = string.Format("{0} - {1}", index, item);
+                string line = string.Format("{0}")
                 Console.WriteLine(line);
-                index++;
             }
 
             int userChoice;
@@ -70,16 +69,16 @@ namespace Ex04.Menus.Delegates
             }
             else
             {
-                OnMenuAction(m_UserChoiceEvent);
+                OnMenuAction(userChoiseEvent);
             }
         }
 
-        public void Print(string i_Input)
+        public void print(string i_input)
         {
-            Console.WriteLine(i_Input);
+            Console.WriteLine(i_input);
         }
 
-        public void GoBack()
+        protected virtual void OnMenuAction(EventArgs i_userChoiseEvent)
         {
             
             Console.WriteLine();
@@ -115,7 +114,7 @@ namespace Ex04.Menus.Delegates
         {
             if(MenuAction != null)
             {
-                MenuAction(this, i_UserChoiceEvent);
+                MenuAction(this, i_userChoiseEvent);
             }
         }
     }
