@@ -7,12 +7,12 @@ namespace Ex04.Menus.Interface
     /// <summary>
     /// Root, Node, Leaf
     /// </summary>
-    public class MenuItem //: MainMenu
+    public class MenuItem  //: MainMenu
     {
         private readonly string r_Title;
-        private IItemChosen m_ParentMenu;
-        private IItemChosen m_SubMenu = null;
-        private readonly List<MenuItem> r_MItems;
+        private MainMenu m_ParentMenu;
+        private MainMenu m_SubMenu;
+        //private readonly List<MenuItem> r_MItems;
 
       /*  public MenuItem(List<MenuItem> i_ListOfItems, string i_MenuTitle, MenuItem i_ItemToAddMenu, string i_Title)
                 : base(i_ListOfItems, i_MenuTitle, i_ItemToAddMenu)
@@ -26,13 +26,13 @@ namespace Ex04.Menus.Interface
             r_Title = i_Title;
         }
 
-        public IItemChosen SubMenu
+        public MainMenu SubMenu
         {
             get { return m_SubMenu; }
             set { m_SubMenu = value; }
         }
 
-        public IItemChosen ParentMenu
+        public MainMenu ParentMenu
         {
             get { return m_ParentMenu; }
             set { m_ParentMenu = value; }
@@ -45,7 +45,14 @@ namespace Ex04.Menus.Interface
 
         public void doWhenChosen(int o_Index)
         {
-            ParentMenu.ItemChosen(this, o_Index);
+            if (this.SubMenu != null)
+            {
+                this.SubMenu.ShowMenu();
+            }
+            else
+            {
+                ((ParentMenu) as IItemChosen).ItemChosen(this, o_Index + 1);
+            }
         }
     }
 }

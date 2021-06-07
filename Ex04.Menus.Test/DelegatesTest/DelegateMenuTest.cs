@@ -9,7 +9,7 @@ namespace Ex04.Menus.Test
     {
         public void LunchMainMenu()
         {
-            string menuHead = "Main Delegate";
+          /*  string menuHead = "Main Delegate";
 
             List<string> items = new List<string>();
             items.Add("Version and Spaces:");
@@ -17,7 +17,7 @@ namespace Ex04.Menus.Test
             VersionData secondLevel = new VersionData();
             MainMenu menu = new MainMenu(items, menuHead, null);
             menu.MenuAction += secondLevel.OnMenuAction;
-            menu.Show();
+            menu.Show(); */
         }
     }
 }

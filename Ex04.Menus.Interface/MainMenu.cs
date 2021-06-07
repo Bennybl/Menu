@@ -6,7 +6,7 @@ namespace Ex04.Menus.Interface
 {
     public class MainMenu
     {
-        private readonly string r_GoBackTitle = string.Format("{0}. Exit", k_GoBack);
+        private readonly string r_GoBackTitle;
         private readonly List<MenuItem> r_MItems;
         private readonly string r_MenuTitle;
         private const int k_GoBack = 0;
@@ -22,6 +22,15 @@ namespace Ex04.Menus.Interface
             {
                 r_MItems.Add(i_Item);
                 i_Item.ParentMenu = this;
+            }
+
+            if (i_ItemToAddMenu == null)
+            {
+                r_GoBackTitle = string.Format("{0} - Exit", k_GoBack);
+            }
+            else
+            {
+                r_GoBackTitle = r_GoBackTitle = string.Format("{0} - Go back", k_GoBack);
             }
         }
 
@@ -42,22 +51,29 @@ namespace Ex04.Menus.Interface
         public void ShowMenu()
         {
             StringBuilder i_Menu = getMenu();
-            int userChoice = retrieveUserChoice(i_Menu);
+            int o_UserChoice = -1;
             MenuItem o_ItemChosen = null;
-            while (userChoice != k_GoBack)
+            while (o_UserChoice != k_GoBack)
             {
-                userChoice = retrieveUserChoice(i_Menu);
-                o_ItemChosen = r_MItems[userChoice - 1];
-                o_ItemChosen.doWhenChosen(userChoice - 1);
+                o_UserChoice = retrieveUserChoice(i_Menu);
+                if(o_UserChoice == k_GoBack)
+                {
+                    break;
+                }
+                o_ItemChosen = r_MItems[o_UserChoice - 1];
+                o_ItemChosen.doWhenChosen(o_UserChoice - 1);
             }
 
-            if (o_ItemChosen.ParentMenu != null)
+            if (o_ItemChosen != null)
             {
-                o_ItemChosen.ParentMenu.ShowMenu();
-            }
+                if(o_ItemChosen.ParentMenu != null)
+                {
+                    o_ItemChosen.ParentMenu.ShowMenu();
+                }
             else
-            {
-                Environment.Exit(0);
+                {
+                    Environment.Exit(0);
+                }
             }
         }
 
@@ -75,7 +91,7 @@ namespace Ex04.Menus.Interface
                 msg = string.Format(@"Please enter your choice (1-{0} or 0 to exit):", m_NumOfItems);
                 inputFromUser = Console.ReadLine();
                 isInteger = int.TryParse(inputFromUser, out o_UserChoice);
-                isValidRange = o_UserChoice < 0 || o_UserChoice > m_NumOfItems;
+                isValidRange = o_UserChoice >= 0 || o_UserChoice <= m_NumOfItems;
                 isValid = isValidRange && isInteger;
                 if (isValid)
                 {
@@ -98,7 +114,7 @@ namespace Ex04.Menus.Interface
             int i = 1;
             foreach (MenuItem item in r_MItems)
             {
-                string line = string.Format(@"{0}. {1}", i, item);
+                string line = string.Format(@"{0}. {1}", i, item.Title);
                 o_Menu.AppendLine(line);
                 i++;
             }

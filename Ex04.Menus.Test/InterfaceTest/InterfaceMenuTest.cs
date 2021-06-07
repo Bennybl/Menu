@@ -21,13 +21,13 @@ namespace Ex04.Menus.Test.InterfaceTest
             MenuItem countSpaces = new MenuItem("Count Spaces");
             items.Add(showVersion);
             items.Add(countSpaces);
-            VersionAndSpaces firstSubMenu = new VersionAndSpaces(items, "Version and Spaces:", versionAndSpaces);
+            new VersionAndSpaces(items, "Version and Spaces:", versionAndSpaces);
             items = new List<MenuItem>();
-            MenuItem level2Item3 = new MenuItem("Show Time");
-            MenuItem level2Item4 = new MenuItem("Show Date");
-            items.Add(level2Item3);
-            items.Add(level2Item4);
-            DateAndTime secondSubMenu = new DateAndTime(items, "Show Date/Time:", showDateTime);
+            MenuItem showTime = new MenuItem("Show Time");
+            MenuItem showDate = new MenuItem("Show Date");
+            items.Add(showTime);
+            items.Add(showDate);
+            new DateAndTime(items, "Show Date/Time:", showDateTime);
             main.ShowMenu();
         }
     }

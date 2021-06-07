@@ -5,7 +5,7 @@ using System.Text;
 namespace Ex04.Menus.Delegates
 {
     public class MainMenu
-    {
+    {/*
         private readonly List<string> r_MainMenueItem;
         private readonly string r_MenuTitle;
         private const int k_GoBack = 0;
@@ -40,7 +40,7 @@ namespace Ex04.Menus.Delegates
             int index = 1;
             foreach (string item in r_MainMenueItem)
             {
-                string line = string.Format("{0}")
+                string line = string.Format("{0}");
                 Console.WriteLine(line);
             }
 
@@ -116,7 +116,7 @@ namespace Ex04.Menus.Delegates
             {
                 MenuAction(this, i_userChoiseEvent);
             }
-        }
+        } */
     }
 
     

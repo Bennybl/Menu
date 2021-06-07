@@ -16,12 +16,6 @@ namespace Ex04.Menus.Test.InterfaceTest
 
         void IItemChosen.ItemChosen(MenuItem i_Item, int o_Index)
         {
-            if (i_Item.SubMenu != null)
-            {
-                ((i_Item.SubMenu) as SubMenu).ShowMenu();
-            }
-            else
-            {
                 switch (o_Index)
                 {
                     case 1:
@@ -32,7 +26,7 @@ namespace Ex04.Menus.Test.InterfaceTest
                         break;
                 }
 
-            }
+         }
 
             void showTime()
             {
@@ -47,4 +41,4 @@ namespace Ex04.Menus.Test.InterfaceTest
             }
         }
     }
-}
+

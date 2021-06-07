@@ -7,6 +7,7 @@ namespace Ex04.Menus.Test
 {
     public class VersionData
     {
+        /*
         public void OnMenuAction(object i_PreviusLevel, EventArgs e)
         {
             UserChoice Choice = (UserChoice)e;
@@ -36,6 +37,6 @@ namespace Ex04.Menus.Test
                     secondSubMenu.Show();
                     break;
             }
-        }
+        } */
     }
 }

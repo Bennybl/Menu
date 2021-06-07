@@ -16,14 +16,14 @@ namespace Ex04.Menus.Test
             {
                 case 1:
                     string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                    con.Print(currentVersion);
+              //      con.Print(currentVersion);
                     break;
 
                 case 2:
-                    con.Print(CountSpaces());
+            //        con.Print(CountSpaces());
                     break;
             }
-            con.GoBack();
+          //  con.GoBack();
         }
 
         private string CountSpaces()
