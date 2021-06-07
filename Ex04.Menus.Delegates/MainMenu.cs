@@ -29,6 +29,7 @@ namespace Ex04.Menus.Delegates
             {
                 r_GoBackTitle = r_GoBackTitle = string.Format("{0} - Go back", k_GoBack);
             }
+
         }
 
         public void Show()
@@ -54,9 +55,10 @@ namespace Ex04.Menus.Delegates
                 {
                     break;
                 }
-
+                Console.WriteLine("Invalid Input, try again...");
             }
 
+            UserChoice userChoiceEvent = new UserChoice(userChoice);
             if (userChoice == k_GoBack)
             {
                 if (r_PreviusLevel != null)
@@ -70,7 +72,7 @@ namespace Ex04.Menus.Delegates
             }
             else
             {
-                OnMenuAction(m_UserChoiceEvent);
+                OnMenuAction(userChoiceEvent);
             }
         }
 
