@@ -104,6 +104,13 @@ namespace Ex04.Menus.Delegates
             }
         }
 
+        private bool inputValidtion(int i_UserChoice)
+        {
+            bool isValid = i_UserChoice <= r_MainMenuItem.Count && i_UserChoice >= 0;
+
+            return isValid;
+        }
+
         protected virtual void OnMenuAction(EventArgs i_UserChoiceEvent)
         {
             if(MenuAction != null)
