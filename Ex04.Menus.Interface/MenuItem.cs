@@ -45,14 +45,14 @@ namespace Ex04.Menus.Interface
 
         public void doWhenChosen(int o_Index)
         {
-            if (this.SubMenu != null)
+            if(this.SubMenu != null)
             {
                 this.SubMenu.ShowMenu();
             }
-            else
-            {
-                ((ParentMenu) as IItemChosen).ItemChosen(this, o_Index + 1);
-            }
+            else 
+            { 
+            ((ParentMenu) as IItemChosen).ItemChosen(this, o_Index + 1);
+        }
         }
     }
 }
