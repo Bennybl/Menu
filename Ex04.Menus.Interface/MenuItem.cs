@@ -10,8 +10,8 @@ namespace Ex04.Menus.Interface
     public class MenuItem //: MainMenu
     {
         private readonly string r_Title;
-        private MainMenu m_ParentMenu;
-        private MainMenu m_SubMenu = null;
+        private IItemChosen m_ParentMenu;
+        private IItemChosen m_SubMenu = null;
         private readonly List<MenuItem> r_MItems;
 
       /*  public MenuItem(List<MenuItem> i_ListOfItems, string i_MenuTitle, MenuItem i_ItemToAddMenu, string i_Title)
@@ -26,13 +26,13 @@ namespace Ex04.Menus.Interface
             r_Title = i_Title;
         }
 
-        public MainMenu SubMenu
+        public IItemChosen SubMenu
         {
             get { return m_SubMenu; }
             set { m_SubMenu = value; }
         }
 
-        public MainMenu ParentMenu
+        public IItemChosen ParentMenu
         {
             get { return m_ParentMenu; }
             set { m_ParentMenu = value; }
@@ -45,7 +45,7 @@ namespace Ex04.Menus.Interface
 
         public void doWhenChosen(int o_Index)
         {
-            m_ParentMenu.ItemChosen(this, o_Index);
+            ParentMenu.ItemChosen(this, o_Index);
         }
     }
 }

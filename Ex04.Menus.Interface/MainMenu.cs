@@ -61,19 +61,6 @@ namespace Ex04.Menus.Interface
             }
         }
 
-        /*public void ItemChosen(MenuItem i_Item)
-        {
-            if (i_Item.SubMenu != null)
-            {
-                i_Item.SubMenu.ShowMenu();
-            }
-            else
-            {
-     
-            }
-        }
-        */
-
         private int retrieveUserChoice(StringBuilder o_Menu)
         {
             string inputFromUser,msg;

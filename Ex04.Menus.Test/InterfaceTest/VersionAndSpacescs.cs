@@ -11,14 +11,14 @@ namespace Ex04.Menus.Test.InterfaceTest
         public VersionAndSpaces(List<MenuItem> i_ListOfItems, string i_MenuTitle, MenuItem i_ItemToAddMenu)
               : base(i_ListOfItems, i_MenuTitle, i_ItemToAddMenu)
         {
-
+            i_ItemToAddMenu.SubMenu = this;
         }
 
-        public void ItemChosen(MenuItem i_Item, int o_Index)
+        void IItemChosen.ItemChosen(MenuItem i_Item, int o_Index) 
         {
             if (i_Item.SubMenu != null)
             {
-                i_Item.SubMenu.ShowMenu();
+                ((i_Item.SubMenu) as SubMenu).ShowMenu();
             }
             else
             {
