@@ -24,7 +24,7 @@ namespace Ex04.Menus.Test
                     break;
 
             }
-          //  currentMenu.GoBack();
+            currentMenu.GoBack();
         }
     }
 

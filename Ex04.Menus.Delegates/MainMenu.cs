@@ -31,7 +31,7 @@ namespace Ex04.Menus.Delegates
             }
         }
 
-        public void ShowMenu()
+        public void Show()
         {
             Console.Clear();
             Console.WriteLine(r_MenuTitle);
@@ -61,7 +61,7 @@ namespace Ex04.Menus.Delegates
             {
                 if (r_PreviusLevel != null)
                 {
-                    r_PreviusLevel.ShowMenu();
+                    r_PreviusLevel.Show();
                 }
                 else
                 {
@@ -97,7 +97,7 @@ namespace Ex04.Menus.Delegates
                 }
                 if (userChoice == 0)
                 {
-                    ShowMenu();
+                    Show();
                     break;
                 }
                 Console.WriteLine("Invalid input!");
