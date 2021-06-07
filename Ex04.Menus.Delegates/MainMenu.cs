@@ -45,8 +45,18 @@ namespace Ex04.Menus.Delegates
                 index++;
             }
 
-            int userChoice = int.Parse(Console.ReadLine());
-            m_UserChoiceEvent = new UserChoice(userChoice);
+            int userChoice;
+            while (true)
+            {
+                bool isValidInt = int.TryParse(Console.ReadLine(), out userChoice);
+                bool isValidRange = inputValidtion(userChoice);
+                if (isValidRange && isValidRange)
+                {
+                    break;
+                }
+
+            }
+
             if(userChoice == k_GoBack)
             {
                 if(r_PreviusLevel != null)
