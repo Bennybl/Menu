@@ -4,14 +4,26 @@ using System.Text;
 
 namespace Ex04.Menus.Interface
 {
-    public class MenuItem
+    /// <summary>
+    /// Root, Node, Leaf
+    /// </summary>
+    public class MenuItem //: MainMenu
     {
-        private readonly string r_Name;
+        private readonly string r_Title;
         private MainMenu m_ParentMenu;
         private MainMenu m_SubMenu = null;
-        public MenuItem(string i_Name)
+        private readonly List<MenuItem> r_MItems;
+
+      /*  public MenuItem(List<MenuItem> i_ListOfItems, string i_MenuTitle, MenuItem i_ItemToAddMenu, string i_Title)
+                : base(i_ListOfItems, i_MenuTitle, i_ItemToAddMenu)
         {
-            this.r_Name = i_Name;
+            this.r_Title = i_Title;
+        }
+      */
+
+        public MenuItem(string i_Title)
+        {
+            r_Title = i_Title;
         }
 
         public MainMenu SubMenu
@@ -26,9 +38,14 @@ namespace Ex04.Menus.Interface
             set { m_ParentMenu = value; }
         }
 
-        private void doWhenChosen()
+        public string Title
         {
-            m_ParentMenu.ItemChosen(this);
+            get { return r_Title; }
+        }
+
+        public void doWhenChosen(int o_Index)
+        {
+            m_ParentMenu.ItemChosen(this, o_Index);
         }
     }
 }

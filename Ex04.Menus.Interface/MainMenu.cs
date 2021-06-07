@@ -6,67 +6,49 @@ namespace Ex04.Menus.Interface
 {
     public class MainMenu
     {
-        private readonly List<string> r_MainMenuStrings;
-        private readonly Dictionary<int, MenuItem> r_MenuItems = new Dictionary<int, MenuItem>();
+        private readonly string r_GoBackTitle = string.Format("{0}. Exit", k_GoBack);
+        private readonly List<MenuItem> r_MItems;
         private readonly string r_MenuTitle;
         private const int k_GoBack = 0;
-        private readonly string r_GoBackTitle;
-        private readonly List<MenuItem> r_Items;
         private int m_NumOfItems;
 
-        public MainMenu(List<string> i_MainMenuStrings, string i_MenuTitle, MenuItem i_ItemToAddMenu)
+        public MainMenu(List<MenuItem> i_ListOfItems, string i_Title, MenuItem i_ItemToAddMenu)
         {
-            int i = 1;
-            r_MainMenuStrings = i_MainMenuStrings;
-            r_MenuTitle = i_MenuTitle;
-            m_NumOfItems = r_MainMenuStrings.Count;
+            r_MenuTitle = i_Title;
+            m_NumOfItems = i_ListOfItems.Count;
+            r_MItems = new List<MenuItem>(); 
 
-
-            foreach (string i_ItemName in r_MainMenuStrings)
+            foreach (MenuItem i_Item in i_ListOfItems)
             {
-                MenuItem item = new MenuItem(i_ItemName);
-                r_MenuItems.Add(i, item);
-                item.ParentMenu = this;
-                i++;
-            }
-
-            if (i_ItemToAddMenu == null) ////Main menu
-            {
-                r_GoBackTitle = string.Format("{0}. Exit", k_GoBack);
-            }
-            else //// SubMenu
-            {
-                i_ItemToAddMenu.SubMenu = this;
-                r_GoBackTitle = r_GoBackTitle = string.Format("{0}. Go back", k_GoBack);
-            
+                r_MItems.Add(i_Item);
+                i_Item.ParentMenu = this;
             }
         }
 
+        public string MenuTitle
+        {
+            get { return r_MenuTitle; }
+        }
+
+        public int GoBack
+        {
+            get { return k_GoBack; }
+        }
+
+        public string GoBackTitle
+        {
+            get { return r_GoBackTitle; }
+        }
         public void ShowMenu()
         {
-            Console.Clear();
-            StringBuilder o_Menu = new StringBuilder("");
-            o_Menu.AppendLine(r_MenuTitle);
-            o_Menu.AppendLine("==============");
-            o_Menu.AppendLine();
-            int userChoice = -1;
-            int i = 1; 
-
-            foreach (string item in r_MainMenuStrings)
-            {
-                string line = string.Format(@"{0}. {1}", i, item);
-                o_Menu.AppendLine(line);
-                i++;
-            }
-
-            o_Menu.AppendLine(r_GoBackTitle);
-            int userChoise = retrieveUserChoice(o_Menu);
+            StringBuilder i_Menu = getMenu();
+            int userChoice = retrieveUserChoice(i_Menu);
             MenuItem o_ItemChosen = null;
-            while (userChoise != k_GoBack)
+            while (userChoice != k_GoBack)
             {
-                userChoice = retrieveUserChoice(o_Menu);
-                r_MenuItems.TryGetValue(userChoice, out o_ItemChosen);
-                ItemChosen(o_ItemChosen);     
+                userChoice = retrieveUserChoice(i_Menu);
+                o_ItemChosen = r_MItems[userChoice - 1];
+                o_ItemChosen.doWhenChosen(userChoice - 1);
             }
 
             if (o_ItemChosen.ParentMenu != null)
@@ -79,7 +61,7 @@ namespace Ex04.Menus.Interface
             }
         }
 
-        public void ItemChosen(MenuItem i_Item)
+        /*public void ItemChosen(MenuItem i_Item)
         {
             if (i_Item.SubMenu != null)
             {
@@ -90,17 +72,7 @@ namespace Ex04.Menus.Interface
      
             }
         }
-
-        public MenuItem GetItem(int index)
-        {
-                bool itemExist = r_MenuItems.TryGetValue(index, out MenuItem item);
-                while (!itemExist)
-                {
-                    itemExist = r_MenuItems.TryGetValue(index, out item);
-                }
-
-            return item;
-        }
+        */
 
         private int retrieveUserChoice(StringBuilder o_Menu)
         {
@@ -126,7 +98,28 @@ namespace Ex04.Menus.Interface
             }
            
             return o_UserChoice;
+            
+        }
+
+        private StringBuilder getMenu()
+        {
+            Console.Clear();
+            StringBuilder o_Menu = new StringBuilder("");
+            o_Menu.AppendLine(r_MenuTitle);
+            o_Menu.AppendLine("==============");
+            o_Menu.AppendLine();
+            int i = 1;
+            foreach (MenuItem item in r_MItems)
+            {
+                string line = string.Format(@"{0}. {1}", i, item);
+                o_Menu.AppendLine(line);
+                i++;
             }
+
+            o_Menu.AppendLine(r_GoBackTitle);
+
+            return o_Menu;
+        }
            
         }
     }
