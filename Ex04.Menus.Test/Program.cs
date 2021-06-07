@@ -7,8 +7,8 @@ namespace Ex04.Menus.Test
     {
         static void Main(string[] args)
         {
-            //DelegateMenuTest delegateMenu = new DelegateMenuTest();
-            //delegateMenu.LunchMainMenu();
+            DelegateMenuTest delegateMenu = new DelegateMenuTest();
+            delegateMenu.LunchMainMenu();
             InterfaceMenuTest interfaceMenu = new InterfaceMenuTest();
             interfaceMenu.LaunchMainMenu();
         }

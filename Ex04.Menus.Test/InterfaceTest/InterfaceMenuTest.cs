@@ -15,7 +15,7 @@ namespace Ex04.Menus.Test.InterfaceTest
             MenuItem showDateTime = new MenuItem("Show Data/Time");
             items.Add(versionAndSpaces);
             items.Add(showDateTime);
-            MainMenu main = new MainMenu(items, "Main Delegate", null);
+            MainMenu main = new MainMenu(items, "Main Interface", null);
             items = new List<MenuItem>();
             MenuItem showVersion = new MenuItem("Show Version");
             MenuItem countSpaces = new MenuItem("Count Spaces");
