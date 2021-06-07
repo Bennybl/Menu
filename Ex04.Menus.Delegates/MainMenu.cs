@@ -31,7 +31,7 @@ namespace Ex04.Menus.Delegates
             }
         }
 
-        public void ShowMenu()
+        public void Show()
         {
             Console.Clear();
             Console.WriteLine(r_MenuTitle);
@@ -45,13 +45,23 @@ namespace Ex04.Menus.Delegates
                 index++;
             }
 
-            int userChoice = int.Parse(Console.ReadLine());
+            int userChoice;
+            while (true)
+            {
+                bool isValidInt = int.TryParse(Console.ReadLine(), out userChoice);
+                bool isValidRange = inputValidtion(userChoice);
+                if(isValidRange && isValidRange)
+                {
+                    break;
+                }
+
+            }
             m_UserChoiceEvent = new UserChoice(userChoice);
-            if(userChoice == k_GoBack)
+            if (userChoice == k_GoBack)
             {
                 if(r_PreviusLevel != null)
                 {
-                    r_PreviusLevel.ShowMenu();
+                    r_PreviusLevel.Show();
                 }
                 else
                 {
@@ -87,11 +97,18 @@ namespace Ex04.Menus.Delegates
                 }
                 if (userChoice == 0)
                 {
-                    ShowMenu();
+                    Show();
                     break;
                 }
                 Console.WriteLine("Invalid input!");
             }
+        }
+
+        private bool inputValidtion(int i_UserChoice)
+        {
+            bool isValid = i_UserChoice <= r_MainMenuItem.Count && i_UserChoice >=0;
+
+            return isValid;
         }
 
         protected virtual void OnMenuAction(EventArgs i_UserChoiceEvent)
@@ -102,5 +119,7 @@ namespace Ex04.Menus.Delegates
             }
         }
     }
+
+    
 
 }

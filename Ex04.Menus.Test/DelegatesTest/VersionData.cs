@@ -21,7 +21,7 @@ namespace Ex04.Menus.Test
                     MainMenu firstSubMenu = new MainMenu(firstSubMenuItem, firstSubMenuTitle, con);
                     Version version = new Version();
                     firstSubMenu.MenuAction += version.OnMenuAction;
-                    firstSubMenu.ShowMenu();
+                    firstSubMenu.Show();
 
                     break;
 
@@ -33,7 +33,7 @@ namespace Ex04.Menus.Test
                     MainMenu secondSubMenu = new MainMenu(secondSubMenuItems, secondSubMenuTitle, con);
                     Time time = new Time();
                     secondSubMenu.MenuAction += time.OnMenuAction;
-                    secondSubMenu.ShowMenu();
+                    secondSubMenu.Show();
                     break;
             }
         }

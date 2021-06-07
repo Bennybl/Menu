@@ -17,7 +17,7 @@ namespace Ex04.Menus.Test
             VersionData secondLevel = new VersionData();
             MainMenu menu = new MainMenu(items, menuHead, null);
             menu.MenuAction += secondLevel.OnMenuAction;
-            menu.ShowMenu();
+            menu.Show();
         }
     }
 }
