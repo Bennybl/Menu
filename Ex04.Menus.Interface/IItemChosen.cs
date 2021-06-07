@@ -6,6 +6,6 @@ namespace Ex04.Menus.Interface
 {
     public interface IItemChosen
     {
-        void ItemChosen(MenuItem item, int o_Index);
+       void ItemChosen(MenuItem item, int o_Index);
     }
 }
